@@ -1,4 +1,4 @@
-# new_app
+# FinancialAnalysisApp
 
 A new Flutter project.
 
