@@ -63,27 +63,33 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+        appBar: AppBar(
+          title: const Text('Finance App'),
+          backgroundColor: Colors.green,
+        ),
         body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          MicrosoftAuthButton(
-            onPressed: () async {
-              final onedrive = OneDrive(
-                  redirectURL:
-                      "https://login.microsoftonline.com/common/oauth2/nativeclient",
-                  clientID: "b4175989-7c2f-4f1b-ae71-4a4f5f63a80a");
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              MicrosoftAuthButton(
+                onPressed: () async {
+                  final onedrive = OneDrive(
+                      redirectURL:
+                          "https://login.microsoftonline.com/common/oauth2/nativeclient",
+                      clientID: "b4175989-7c2f-4f1b-ae71-4a4f5f63a80a");
 
-              final success = await onedrive.connect(context);
-              if (success) {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Result(onedrive)));
-              }
-            },
+                  final success = await onedrive.connect(context);
+                  if (success) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Result(onedrive)));
+                  }
+                },
+              ),
+            ],
           ),
-        ],
-      ),
-    ) // This trailing comma makes auto-formatting nicer for build methods.
+        ) // This trailing comma makes auto-formatting nicer for build methods.
         );
   }
 }

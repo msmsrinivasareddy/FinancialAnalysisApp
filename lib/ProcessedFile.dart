@@ -9,23 +9,27 @@ class ProcessedFile extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+          appBar: AppBar(
+            title: const Text('Finance App'),
+            backgroundColor: Colors.green,
+          ),
           body: Center(
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-            Text(fileFound),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Result(oneDrive)));
-                },
-                child: Text('Back to File location',
-                    style: TextStyle(
-                      color: Colors.white,
-                    )))
-          ]))),
+                Text(fileFound),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Result(oneDrive)));
+                    },
+                    child: Text('Back to File location',
+                        style: TextStyle(
+                          color: Colors.white,
+                        )))
+              ]))),
     );
   }
 }
